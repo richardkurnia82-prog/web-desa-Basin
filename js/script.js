@@ -8,17 +8,17 @@ document.addEventListener("DOMContentLoaded", function(){ // Menjalankan fungsi 
 
 
     // =====================================================================
-    // 2. WARNING SAAT WEBSITE DIBUKA PERTAMA KALI
+    // 2. WARNING SELAMAT DATANG
     // =====================================================================
 
     // Mengecek apakah warning sudah pernah muncul
     if(!sessionStorage.getItem("welcomeShown")){ // Jika belum pernah muncul
 
-        // Menampilkan popup warning
-        alert("Selamat Datang di Website Resmi Desa Basin"); // Popup sambutan
+        alert("Selamat Datang di Website Resmi Desa Basin"); // Menampilkan popup warning
 
-        // Menyimpan status agar warning tidak muncul lagi
-        sessionStorage.setItem("welcomeShown", "true"); // Menandai warning sudah tampil
+        // Menyimpan data agar warning tidak muncul lagi
+        sessionStorage.setItem("welcomeShown", "true");
+
     }
 
 
@@ -86,15 +86,17 @@ document.addEventListener("DOMContentLoaded", function(){ // Menjalankan fungsi 
 
 
     // =====================================================================
-    // 6. MENGUBAH TEKS HERO
+    // 6. TEKS BERJALAN
     // =====================================================================
 
-    // Jika elemen ditemukan
+    // Jika elemen welcome ditemukan
     if(welcomeText){ // Mengecek apakah elemen ada
 
-        // Mengubah tulisan otomatis
+        // Mengubah teks menjadi marquee berjalan
         welcomeText.innerHTML =
-        `${salam}, Selamat Datang di Website Resmi Desa Basin`; // Mengubah teks hero sesuai waktu
+        `<marquee behavior="scroll" direction="left" scrollamount="8">
+        ${salam}, Selamat Datang di Website Resmi Desa Basin
+        </marquee>`; // Membuat teks berjalan dari kanan ke kiri
 
     }
 
@@ -148,27 +150,12 @@ document.addEventListener("DOMContentLoaded", function(){ // Menjalankan fungsi 
 
     });
 
-
-
-    // =====================================================================
-    // 8. EFEK TEKS BERGERAK HERO
-    // =====================================================================
-
-    // Jika welcome text ditemukan
-    if(welcomeText){
-
-        // Menambahkan animasi berkedip halus
-        welcomeText.style.animation =
-        "fadeHero 2s infinite alternate"; // Animasi fade
-
-    }
-
 });
 
 
 
 // =====================================================================
-// 9. EFEK NAVBAR SAAT SCROLL
+// 8. EFEK NAVBAR SAAT SCROLL
 // =====================================================================
 
 // Saat halaman discroll
@@ -213,34 +200,3 @@ window.addEventListener("scroll", function(){ // Menjalankan fungsi saat halaman
     }
 
 });
-
-
-
-// =====================================================================
-// 10. MEMBUAT ANIMASI HERO DENGAN CSS JAVASCRIPT
-// =====================================================================
-
-// Membuat elemen style
-const style = document.createElement("style"); // Membuat tag style baru
-
-
-
-// Isi animasi CSS
-style.innerHTML = `
-@keyframes fadeHero{
-
-    from{
-        opacity:0.6;
-    }
-
-    to{
-        opacity:1;
-    }
-
-}
-`; // Animasi fade halus
-
-
-
-// Menambahkan style ke head HTML
-document.head.appendChild(style); // Memasang animasi ke website

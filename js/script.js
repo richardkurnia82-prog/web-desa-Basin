@@ -40,45 +40,47 @@ document.addEventListener("DOMContentLoaded", function(){ // Menjalankan fungsi 
     // =====================================================================
 
     // Jika jam kurang dari 11
-    if(jam < 11){ // Kondisi pagi
+    if(jam < 11){
 
-        salam = "Selamat Pagi"; // Mengubah salam menjadi pagi
+        salam = "Selamat Pagi";
 
 
 
     // Jika jam kurang dari 15
-    }else if(jam < 15){ // Kondisi siang
+    }else if(jam < 15){
 
-        salam = "Selamat Siang"; // Mengubah salam menjadi siang
+        salam = "Selamat Siang";
 
 
 
     // Jika jam kurang dari 18
-    }else if(jam < 18){ // Kondisi sore
+    }else if(jam < 18){
 
-        salam = "Selamat Sore"; // Mengubah salam menjadi sore
+        salam = "Selamat Sore";
 
 
 
     // Selain itu
-    }else{ // Kondisi malam
+    }else{
 
-        salam = "Selamat Malam"; // Mengubah salam menjadi malam
+        salam = "Selamat Malam";
 
     }
 
 
 
     // =====================================================================
-    // 5. MENGUBAH TEKS HERO
+    // 5. TEKS BERJALAN NORMAL HP & LAPTOP
     // =====================================================================
 
     // Jika elemen ditemukan
-    if(welcomeText){ // Mengecek apakah elemen ada
+    if(welcomeText){
 
-        // Mengubah tulisan otomatis
+        // Isi teks hero
         welcomeText.innerHTML =
-        `${salam}, Selamat Datang di Website Resmi Desa Basin`; // Mengubah teks hero sesuai waktu
+        `<marquee behavior="scroll" direction="left">
+        ${salam}, Selamat Datang di Website Resmi Desa Basin
+        </marquee>`; // Membuat teks berjalan normal di HP & Laptop
 
     }
 
@@ -89,46 +91,46 @@ document.addEventListener("DOMContentLoaded", function(){ // Menjalankan fungsi 
     // =====================================================================
 
     // Mengambil semua card
-    const cards = document.querySelectorAll(".card"); // Mengambil semua elemen card
+    const cards = document.querySelectorAll(".card");
 
 
 
-    // Melakukan perulangan setiap card
-    cards.forEach((card, index)=>{ // Perulangan semua card
+    // Perulangan semua card
+    cards.forEach((card, index)=>{
 
 
 
-        // Card awalnya transparan
-        card.style.opacity = "0"; // Card disembunyikan sementara
+        // Card transparan
+        card.style.opacity = "0";
 
 
 
-        // Posisi card turun 30px
-        card.style.transform = "translateY(30px)"; // Card digeser ke bawah
+        // Card turun sedikit
+        card.style.transform = "translateY(30px)";
 
 
 
-        // Memberi delay animasi
-        setTimeout(()=>{ // Menjalankan animasi dengan jeda
+        // Delay animasi
+        setTimeout(()=>{
 
 
 
             // Durasi animasi
-            card.style.transition = "0.5s"; // Durasi animasi setengah detik
+            card.style.transition = "0.5s";
 
 
 
             // Card muncul
-            card.style.opacity = "1"; // Card dimunculkan
+            card.style.opacity = "1";
 
 
 
-            // Card kembali normal
-            card.style.transform = "translateY(0)"; // Posisi card kembali normal
+            // Posisi normal
+            card.style.transform = "translateY(0)";
 
 
 
-        }, index * 200); // Delay berbeda tiap card
+        }, index * 200);
 
     });
 
@@ -141,43 +143,43 @@ document.addEventListener("DOMContentLoaded", function(){ // Menjalankan fungsi 
 // =====================================================================
 
 // Saat halaman discroll
-window.addEventListener("scroll", function(){ // Menjalankan fungsi saat halaman digulir
+window.addEventListener("scroll", function(){
 
 
 
     // Mengambil navbar
-    const navbar = document.querySelector(".navbar"); // Mengambil elemen navbar
+    const navbar = document.querySelector(".navbar");
 
 
 
     // Jika scroll lebih dari 50px
-    if(window.scrollY > 50){ // Mengecek posisi scroll
+    if(window.scrollY > 50){
 
 
 
-        // Navbar menjadi lebih solid
-        navbar.style.background = "rgba(255,255,255,0.98)"; // Background navbar lebih jelas
+        // Navbar lebih solid
+        navbar.style.background = "rgba(255,255,255,0.98)";
 
 
 
-        // Bayangan navbar lebih jelas
+        // Shadow lebih jelas
         navbar.style.boxShadow =
-        "0 4px 20px rgba(0,0,0,0.1)"; // Shadow navbar diperbesar
+        "0 4px 20px rgba(0,0,0,0.1)";
 
 
 
-    }else{ // Jika kembali ke atas
+    }else{
 
 
 
-        // Navbar kembali normal
-        navbar.style.background = "white"; // Background putih normal
+        // Navbar normal
+        navbar.style.background = "white";
 
 
 
-        // Bayangan kembali tipis
+        // Shadow normal
         navbar.style.boxShadow =
-        "0 2px 10px rgba(0,0,0,0.1)"; // Shadow kecil
+        "0 2px 10px rgba(0,0,0,0.1)";
 
     }
 

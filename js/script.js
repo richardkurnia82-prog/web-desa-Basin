@@ -199,4 +199,4 @@ window.addEventListener("scroll", function(){ // Menjalankan fungsi saat halaman
 
     }
 
-});
+})
